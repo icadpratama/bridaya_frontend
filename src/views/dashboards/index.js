@@ -17,21 +17,21 @@ const DashboardData = React.lazy(() =>
 const Dashboards = ({ match }) => (
     <Suspense fallback={<div className="loading" />}>
         <Switch>
-            <Redirect exact from={`${match.url}/`} to={`${match.url}/default`} />
+            <Redirect exact from={`${match.url}/`} to={`${match.url}/capital`} />
             <Route
-                path={`${match.url}/default`}
+                path={`${match.url}/capital`}
                 render={props => <DashboardCapital {...props} />}
             />
             <Route
-                path={`${match.url}/content`}
+                path={`${match.url}/consultation`}
                 render={props => <DashboardConsultation {...props} />}
             />
             <Route
-                path={`${match.url}/ecommerce`}
+                path={`${match.url}/data`}
                 render={props => <DashboardData {...props} />}
             />
             <Route
-                path={`${match.url}/analytics`}
+                path={`${match.url}/information`}
                 render={props => <DashboardInformation {...props} />}
             />
             <Redirect to="/error" />

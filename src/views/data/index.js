@@ -14,7 +14,7 @@ const Liability = React.lazy(() =>
     import('./liabilities')
 );
 
-class App extends Component {
+class Data extends Component {
     render() {
         const { match } = this.props;
 
@@ -53,5 +53,5 @@ export default withRouter(
     connect(
         mapStateToProps,
         {}
-    )(App)
+    )(Data)
 );

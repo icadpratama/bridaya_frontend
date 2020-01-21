@@ -2,26 +2,26 @@ const data = [{
   id: "dashboards",
     icon: "iconsminds-shop-4",
     label: "menu.dashboards",
-    to: "/app/dashboards",
+    to: "/dashboards",
     subs: [{
         icon: "simple-icon-briefcase",
         label: "menu.information",
-        to: "/app/dashboards/information"
+        to: "/dashboards/information"
       },
       {
         icon: "simple-icon-pie-chart",
         label: "menu.capital",
-        to: "/app/dashboards/capital"
+        to: "/dashboards/capital"
       },
       {
         icon: "simple-icon-earphones-alt",
         label: "menu.consultation",
-        to: "/app/dashboards/consultation"
+        to: "/dashboards/consultation"
       },
       {
         icon: "simple-icon-notebook",
         label: "menu.data",
-        to: "/app/dashboards/data"
+        to: "/dashboards/data"
       }
     ]
   },

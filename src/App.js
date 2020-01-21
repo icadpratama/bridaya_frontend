@@ -19,6 +19,10 @@ const ViewMain = React.lazy(() =>
 const ViewApp = React.lazy(() =>
   import(/* webpackChunkName: "views-app" */ './views/app')
 );
+
+const ViewDashboard = React.lazy(() =>
+  import(/* webpackChunkName: "views-app" */ './views/dashboards')
+);
 const ViewCapital = React.lazy(() =>
   import(/* webpackChunkName: "views-capital" */ './views/capital')
 );
@@ -30,6 +34,9 @@ const ViewData = React.lazy(() =>
 );
 const ViewInformation = React.lazy(() =>
   import(/* webpackChunkName: "views-information" */ './views/information')
+);
+const ViewUser = React.lazy(() =>
+  import(/* webpackChunkName: "views-user" */ './views/user')
 );
 const ViewError = React.lazy(() =>
   import(/* webpackChunkName: "views-error" */ './views/error')
@@ -69,6 +76,10 @@ class App extends Component {
                     render={props => <ViewApp {...props} />}
                   />
                   <Route
+                    path="/dashboards"
+                    render={props => <ViewDashboard {...props} />}
+                  />
+                  <Route
                     path="/capital"
                     render={props => <ViewCapital {...props} />}
                   />
@@ -83,6 +94,10 @@ class App extends Component {
                   <Route
                     path="/information"
                     render={props => <ViewInformation {...props} />}
+                  />
+                  <Route
+                    path="/user"
+                    render={props => <ViewUser {...props} />}
                   />
                   <Route
                     path="/error"
