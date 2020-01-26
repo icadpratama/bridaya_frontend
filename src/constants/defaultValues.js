@@ -11,8 +11,17 @@ export const localeOptions = [
   { id: "en", name: "English - LTR", direction: "ltr" },
   { id: "es", name: "Español", direction: "ltr" },
   { id: "id", name: "Indonesia", direction: "ltr" },
-  { id: "enrtl", name: "English - RTL", direction: "rtl" }
+  // { id: "enrtl", name: "English - RTL", direction: "rtl" }
 ];
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBBksq-Asxq2M4Ot-75X19IyrEYJqNBPcg",
+  authDomain: "gogo-react-login.firebaseapp.com",
+  databaseURL: "https://gogo-react-login.firebaseio.com",
+  projectId: "gogo-react-login",
+  storageBucket: "gogo-react-login.appspot.com",
+  messagingSenderId: "216495999563"
+};
 
 export const searchPath = "/app/pages/search";
 export const servicePath = "https://api.coloredstrategies.com";

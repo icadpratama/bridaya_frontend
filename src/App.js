@@ -7,24 +7,24 @@ import {
   Redirect
 } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
+import './helpers/Firebase';
 import AppLocale from './lang';
 import ColorSwitcher from './components/common/ColorSwitcher';
 import NotificationContainer from './components/common/react-notifications/NotificationContainer';
-import { isMultiColorActive } from './constants/defaultValues';
+import { isMultiColorActive, isDemo } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
 
 const ViewMain = React.lazy(() =>
   import(/* webpackChunkName: "views" */ './views')
 );
-const ViewApp = React.lazy(() =>
-  import(/* webpackChunkName: "views-app" */ './views/app')
-);
-
 const ViewDashboard = React.lazy(() =>
   import(/* webpackChunkName: "views-app" */ './views/dashboards')
 );
 const ViewCapital = React.lazy(() =>
   import(/* webpackChunkName: "views-capital" */ './views/capital')
+);
+const ViewCashier = React.lazy(() =>
+  import(/* webpackChunkName: "views-cashiers" */ './views/cashiers')
 );
 const ViewConsultation = React.lazy(() =>
   import(/* webpackChunkName: "views-consultation" */ './views/consultation')
@@ -42,6 +42,26 @@ const ViewError = React.lazy(() =>
   import(/* webpackChunkName: "views-error" */ './views/error')
 );
 
+const AuthRoute = ({ component: Component, authUser, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        authUser || isDemo ? (
+          <Component {...props} />
+        ) : (
+            <Redirect
+              to={{
+                pathname: '/user/login',
+                state: { from: props.location }
+              }}
+            />
+          )
+      }
+    />
+  );
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +76,7 @@ class App extends Component {
   }
 
   render() {
-    const { locale } = this.props;
+    const { locale, loginUser } = this.props;
     const currentAppLocale = AppLocale[locale];
 
     return (
@@ -71,9 +91,10 @@ class App extends Component {
             <Suspense fallback={<div className="loading" />}>
               <Router>
                 <Switch>
-                  <Route
-                    path="/app"
-                    render={props => <ViewApp {...props} />}
+                  <AuthRoute
+                    path="/cashiers"
+                    authUser={loginUser}
+                    component={ViewCashier}
                   />
                   <Route
                     path="/dashboards"
@@ -82,6 +103,10 @@ class App extends Component {
                   <Route
                     path="/capital"
                     render={props => <ViewCapital {...props} />}
+                  />
+                  <Route
+                    path="/cashiers"
+                    render={props => <ViewCashier {...props} />}
                   />
                   <Route
                     path="/consultation"
@@ -120,9 +145,10 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ settings }) => {
+const mapStateToProps = ({ authUser, settings }) => {
+  const { user: loginUser } = authUser;
   const { locale } = settings;
-  return { locale };
+  return { loginUser, locale };
 };
 const mapActionsToProps = {};
 

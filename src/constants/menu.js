@@ -24,59 +24,32 @@ const data = [{
         to: "/dashboards/data"
       }
     ]
-  },
+},
   {
-    id: "information",
-    icon: "iconsminds-pantone",
-    label: "menu.information",
-    to: "/information",
-    subs: [
-      {
-        icon: "simple-icon-credit-card",
-        label: "menu.product",
-        to: "/information/product"
-      }
-    ]
-  },
-  {
-    id: "capital",
-    icon: "iconsminds-financial",
-    label: "menu.capital",
-    to: "/capital",
+    id: "cashiers",
+    icon: "iconsminds-cash-register-2",
+    label: "menu.cashiers",
+    to: "/cashiers",
     subs: [{
-      id: "cash-flow",
-      label: "menu.cashflow",
-      to: "/capital/cashflow",
-      subs: [
-        {
-          icon: "iconsminds-cash-register-2",
-          label: "menu.inflow",
-          to: "/capital/cashflow/inflow"
-        },
-        {
-          icon: "iconsminds-mail-money",
-          label: "menu.outflow",
-          to: "/capital/cashflow/outflow"
-        }
-      ]
+      icon: "iconsminds-home-1",
+      label: "menu.merchant",
+      to: "/cashiers/merchants"
     },
     {
-      icon: "iconsminds-check",
-      label: "menu.reconsiliation",
-      to: "/capital/reconsiliation/index"
-    }]
-  },
-  {
-    id: "consultation",
-    icon: "iconsminds-headset",
-    label: "menu.consultation",
-    to: "/consultation",
-    subs: [
-      {
-        icon: "simple-icon-bubbles",
-        label: "menu.chat",
-        to: "/consultation/chat"
-      }
+      icon: "iconsminds-chef-hat",
+      label: "menu.items",
+      to: "/cashiers/items"
+    },
+    {
+      icon: "iconsminds-add-cart",
+      label: "menu.order",
+      to: "/cashiers/orders"
+    },
+    {
+      icon: "iconsminds-receipt-4",
+      label: "menu.transaction",
+      to: "/cashiers/transactions"
+    }
     ]
   },
   {
@@ -99,6 +72,60 @@ const data = [{
         icon: "iconsminds-handshake",
         label: "menu.equity",
         to: "/data/equity"
+      }
+    ]
+  },
+  {
+    id: "capital",
+    icon: "iconsminds-financial",
+    label: "menu.capital",
+    to: "/capital",
+    subs: [{
+      id: "cash-flow",
+      label: "menu.cashflow",
+      to: "/capital/cashflow",
+      subs: [
+        {
+          icon: "iconsminds-add-basket",
+          label: "menu.inflow",
+          to: "/capital/cashflow/inflow"
+        },
+        {
+          icon: "iconsminds-remove-basket",
+          label: "menu.outflow",
+          to: "/capital/cashflow/outflow"
+        }
+      ]
+    },
+    {
+      icon: "iconsminds-check",
+      label: "menu.reconsiliation",
+      to: "/capital/reconsiliation/index"
+    }]
+  },
+  {
+    id: "information",
+    icon: "iconsminds-pantone",
+    label: "menu.information",
+    to: "/information",
+    subs: [
+      {
+        icon: "simple-icon-credit-card",
+        label: "menu.product",
+        to: "/information/product"
+      }
+    ]
+  },
+  {
+    id: "consultation",
+    icon: "iconsminds-headset",
+    label: "menu.consultation",
+    to: "/consultation",
+    subs: [
+      {
+        icon: "simple-icon-bubbles",
+        label: "menu.chat",
+        to: "/consultation/chat"
       }
     ]
   }
