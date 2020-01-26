@@ -15,31 +15,31 @@ import { isMultiColorActive, isDemo } from './constants/defaultValues';
 import { getDirection } from './helpers/Utils';
 
 const ViewMain = React.lazy(() =>
-  import(/* webpackChunkName: "views" */ './views')
+  import('./views')
 );
 const ViewDashboard = React.lazy(() =>
-  import(/* webpackChunkName: "views-app" */ './views/dashboards')
+  import('./views/dashboards')
 );
 const ViewCapital = React.lazy(() =>
-  import(/* webpackChunkName: "views-capital" */ './views/capital')
+  import('./views/capital')
 );
 const ViewCashier = React.lazy(() =>
-  import(/* webpackChunkName: "views-cashiers" */ './views/cashiers')
+  import('./views/cashiers')
 );
 const ViewConsultation = React.lazy(() =>
-  import(/* webpackChunkName: "views-consultation" */ './views/consultation')
+  import('./views/consultation')
 );
 const ViewData = React.lazy(() =>
-  import(/* webpackChunkName: "views-data" */ './views/data')
+  import('./views/data')
 );
 const ViewInformation = React.lazy(() =>
-  import(/* webpackChunkName: "views-information" */ './views/information')
+  import('./views/information')
 );
 const ViewUser = React.lazy(() =>
-  import(/* webpackChunkName: "views-user" */ './views/user')
+  import('./views/user')
 );
 const ViewError = React.lazy(() =>
-  import(/* webpackChunkName: "views-error" */ './views/error')
+  import('./views/error')
 );
 
 const AuthRoute = ({ component: Component, authUser, ...rest }) => {

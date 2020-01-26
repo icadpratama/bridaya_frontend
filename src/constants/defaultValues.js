@@ -15,12 +15,14 @@ export const localeOptions = [
 ];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBBksq-Asxq2M4Ot-75X19IyrEYJqNBPcg",
-  authDomain: "gogo-react-login.firebaseapp.com",
-  databaseURL: "https://gogo-react-login.firebaseio.com",
-  projectId: "gogo-react-login",
-  storageBucket: "gogo-react-login.appspot.com",
-  messagingSenderId: "216495999563"
+  apiKey: "AIzaSyB0eU31KIrpTKYBehc74qCiNvtix7qXz3Q",
+  authDomain: "bridaya-7d697.firebaseapp.com",
+  databaseURL: "https://bridaya-7d697.firebaseio.com",
+  projectId: "bridaya-7d697",
+  storageBucket: "bridaya-7d697.appspot.com",
+  messagingSenderId: "695642081845",
+  appId: "1:695642081845:web:ab6715b89c052dbe123f7c",
+  measurementId: "G-FXS6Q3KHPE"
 };
 
 export const searchPath = "/app/pages/search";
