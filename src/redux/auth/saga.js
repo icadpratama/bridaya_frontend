@@ -1,5 +1,7 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
 import { auth } from '../../helpers/Firebase';
+import { apiPath } from '../../constants/defaultValues';
+import axios from 'axios';
 import {
     LOGIN_USER,
     REGISTER_USER,
@@ -25,10 +27,21 @@ export function* watchLoginUser() {
 }
 
 const loginWithEmailPasswordAsync = async (email, password) =>
-    await auth.signInWithEmailAndPassword(email, password)
-        .then(authUser => authUser)
-        .catch(error => error);
+    // await auth.signInWithEmailAndPassword(email, password)
+    //     .then(authUser => authUser)
+    //     .catch(error => error);
+    // await axios.request({
+    //     method: 'post',
+    //     url: apiPath,
+    //     data: email
+    // });
 
+    axios.post(apiPath +"auth/login", {
+        usernameOrEmail: email,
+        password: password
+    })
+        .then(authUser => authUser)
+        .catch(error => error.response);
 
 
 function* loginWithEmailPassword({ payload }) {
@@ -36,13 +49,20 @@ function* loginWithEmailPassword({ payload }) {
     const { history } = payload;
     try {
         const loginUser = yield call(loginWithEmailPasswordAsync, email, password);
-        if (!loginUser.message) {
-            localStorage.setItem('user_id', loginUser.user.uid);
-            yield put(loginUserSuccess(loginUser.user));
+        if (loginUser.status === 200) {
+            yield put(loginUserSuccess(loginUser.data));
+            localStorage.setItem('accessToken', loginUser.data.accessToken);
             history.push('/');
         } else {
             yield put(loginUserError(loginUser.message));
         }
+        // if (!loginUser.message) {
+        //     localStorage.setItem('user_id', loginUser.user.uid);
+        //     yield put(loginUserSuccess(loginUser.user));
+        //     history.push('/');
+        // } else {
+        //     yield put(loginUserError(loginUser.message));
+        // }
     } catch (error) {
         yield put(loginUserError(error));
 
@@ -92,7 +112,7 @@ function* logout({ payload }) {
     const { history } = payload
     try {
         yield call(logoutAsync, history);
-        localStorage.removeItem('user_id');
+        localStorage.removeItem('accessToken');
     } catch (error) {
     }
 }

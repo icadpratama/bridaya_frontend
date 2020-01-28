@@ -15,7 +15,7 @@ import {
 } from '../actions';
 
 const INIT_STATE = {
-    user: localStorage.getItem('user_id'),
+    user: localStorage.getItem('accessToken'),
     forgotUserMail: '',
     newPassword: '',
     resetPasswordCode: '',
