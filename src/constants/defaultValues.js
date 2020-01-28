@@ -27,7 +27,10 @@ export const firebaseConfig = {
 
 export const searchPath = "/app/pages/search";
 export const servicePath = "https://api.coloredstrategies.com";
-
+export const path = "http://localhost:8080";
+export const version = "1.0";
+export const apiPath = path + "/" + version + "/";
+// items/1/list
 /*
 Color Options:
 "light.purple", "light.blue", "light.green", "light.orange", "light.red", "dark.purple", "dark.blue", "dark.green", "dark.orange", "dark.red"
