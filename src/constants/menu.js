@@ -32,7 +32,7 @@ const data = [{
     to: "/cashiers",
     subs: [{
       icon: "iconsminds-home-1",
-      label: "menu.merchant",
+      label: "menu.merchants",
       to: "/cashiers/merchants"
     },
     {

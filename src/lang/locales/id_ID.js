@@ -45,11 +45,12 @@ module.exports = {
     "menu.consultation": "Konsultasi",
     "menu.information": "Informasi",
     "menu.cashiers": "Kasir",
-    "menu.merchant": "Penjual",
+    "menu.merchants": "Penjual",
     "menu.items": "Menu",
     "menu.item-list": "Daftar Menu",
     "menu.order": "Pesanan",
     "menu.transaction": "Transaksi",
+    "menu.merchant-list": "Daftar Penjual",
 
     /* 04.Error Page */
     "pages.error-title": "Ooops... looks like an error occurred!",
@@ -65,5 +66,8 @@ module.exports = {
     "pages.cancel": "Batalkan",
     "pages.submit": "Kirimkan",
     "pages.delete": "Hapus",
-    "pages.update": "Perbarui"
+    "pages.update": "Perbarui",
+
+    /* 05.Table */
+    "table.merchants": "Tabel Penjual",
 };

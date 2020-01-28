@@ -27,15 +27,6 @@ export function* watchLoginUser() {
 }
 
 const loginWithEmailPasswordAsync = async (email, password) =>
-    // await auth.signInWithEmailAndPassword(email, password)
-    //     .then(authUser => authUser)
-    //     .catch(error => error);
-    // await axios.request({
-    //     method: 'post',
-    //     url: apiPath,
-    //     data: email
-    // });
-
     axios.post(apiPath +"auth/login", {
         usernameOrEmail: email,
         password: password
